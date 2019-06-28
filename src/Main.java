@@ -64,13 +64,12 @@ public class Main {
         System.out.printf("\n| %-90s %7s", "6. Show student.", "|");
         System.out.printf("\n| %-90s %7s", "0. Exit.", "|");
         printLine();
-        System.out.printf("\n  ", "Please choose: ");
+        System.out.printf("\nPlease choose: ");
 
     }
 
     public static void printLine() {
         System.out.println();
-
         for (int i = 1; i <= 100; i++) {
             if (i == 1 || i == 100) {
                 System.out.print("+");
