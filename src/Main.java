@@ -1,7 +1,57 @@
+import java.util.Scanner;
+
 /**
  * Created by AMBE on 28/6/2019 at 16:21 PM.
  */
 public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        String choose;
+        String id;
+        boolean exit = false;
+        showMenu();
+        StudenManager studenManager = new StudenManager();
+        while (true) {
+            choose = scanner.nextLine();
+            switch (choose) {
+                case "0":
+                    exit = true;
+                    System.out.println("Existed!");
+                    break;
+                case "1":
+                    studenManager.addStudent();
+                    break;
+                case "2":
+                    System.out.print("Id: ");
+                    id = scanner.nextLine();
+                    studenManager.editStudentById(id);
+                    break;
+                case "3":
+                    System.out.print("Id: ");
+                    id = scanner.nextLine();
+                    studenManager.deleteStudentById(id);
+                    break;
+                case "4":
+                    studenManager.sortByGpa();
+                    break;
+                case "5":
+                    studenManager.sortByName();
+                    break;
+                case "6":
+                    studenManager.showStudent();
+                    break;
+            }
+
+            if (exit) {
+                break;
+            }
+            showMenu();
+        }
+
+
+    }
 
     public static void showMenu() {
         printLine();
@@ -14,7 +64,7 @@ public class Main {
         System.out.printf("\n| %-90s %7s", "6. Show student.", "|");
         System.out.printf("\n| %-90s %7s", "0. Exit.", "|");
         printLine();
-        System.out.printf("\n  %-90s ", "Please choose: ");
+        System.out.printf("\n  ", "Please choose: ");
 
     }
 
@@ -30,7 +80,5 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
-        showMenu();
-    }
+
 }
